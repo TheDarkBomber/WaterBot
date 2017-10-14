@@ -12,15 +12,6 @@ bot.on('ready', () =>
  console.log("Connected to Discord! Client ID: " + bot.user.id);
 });
 
-var validCommands = [
-	"help",
-	"ping",
-	"uptime",
-	"rm",
-	"setgame",
-	"uinfo"
-]
-
 // Listen for messages
 bot.on('message', message =>
 {
