@@ -56,13 +56,13 @@ bot.on('message', message =>
  }
  // inline=true
  // Ping Command
- if (command == "ping")
+ else if (command == "ping")
  {
 	 message.channel.send(conf.pingResponses[Math.floor(Math.random() * conf.pingResponses.length)]);
  }
 
  // RM Command
- if (command == "rm")
+ else if (command == "rm")
  {
 	 if (message.member.hasPermission("MANAGE_MESSAGES"))
 	 {
@@ -89,14 +89,8 @@ bot.on('message', message =>
 	 }
  }
 
- // No Command
- if(command == "")
- {
-   message.channel.send(":no_entry_sign: Sorry kid, that ain't a valid command.");
- }
-
  // SetGame Command
- if(command == "setgame")
+ else if(command == "setgame")
  {
    if(message.author.id == conf.ownerID)
    {
@@ -111,7 +105,7 @@ bot.on('message', message =>
  }
 
     // uinfo Command
-    if(command == "uinfo")
+    else if(command == "uinfo")
     {
       message.channel.send({embed: {
        color: 3447003,
@@ -121,13 +115,16 @@ bot.on('message', message =>
    });
     }
     // Uptime Command
-    if(command == "uptime")
+    else if(command == "uptime")
     {
       message.channel.send({embed: {
   color: 3447003,
   title: conf.name + " Uptime",
   description: conf.name + " has been online for " + Math.round(((process.uptime() / 60) * 10^1) / 10^1) + "m."
       }});
+    }
+    else  {
+      message.channel.send(":no_entry_sign: Sorry kid, that ain't a valid command.");
     }
 });
 bot.login(conf.token);
